@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import axios from "axios";
+import styled from "styled-components";
+
+const CardContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+`;
 
 export default function CharacterGrid() {
 	const [char, setChar] = useState([]);
-	// const [homeworld, setHomeworld] = useState([]);
-	// const [films, setFilms] = useState([]);
-	// const [starships, setStarships] = useState([]);
 
 	useEffect(() => {
 		axios
@@ -14,28 +18,28 @@ export default function CharacterGrid() {
 			.then(response => {
 				console.log(response.data);
 				console.log(response.data.results);
-				setChar(response.data.results.name);
-				// setHomeworld(response.data.homeworld);
-				// setFilms(response.data.films);
-				// setStarships(response.data.starships);
+				const newData = response.data.results;
+				setChar(newData);
 			})
 			.catch(error => {
 				console.log("I've got a bad feeling about this", error);
 			});
-	}, [char]);
+	}, []);
 
 	return (
-		<div className="container">
+		<CardContainer>
 			{char.map(item => {
 				return (
 					<CharacterCard
-						getName={item}
-						// getHomeworld={homeworld}
-						// getFilms={films}
-						// getStarships={starships}
+						getName={item.name}
+						getBirth={item.birth_year}
+						getHair={item.hair_color}
+						getEyes={item.eye_color}
+						getHeight={item.height}
+						getGender={item.gender}
 					/>
 				);
 			})}
-		</div>
+		</CardContainer>
 	);
 }

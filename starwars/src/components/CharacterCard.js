@@ -2,10 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-	background: lightblue;
-	color: black;
-	width: 500px;
-	height: 500px;
+	background-image: linear-gradient(to bottom right, lightblue, darkblue);
+	color: #b3ff1a;
+	h3 {
+		color: black;
+	}
+	p {
+		color: black;
+	}
+	width: 300px;
+	height: 300px;
+	border: ridge 5px dodgerblue;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,11 +24,13 @@ const CharacterCard = props => {
 	return (
 		<Card>
 			<h1>{props.getName}</h1>
-			{/* <h3>{props.getHomeworld}</h3>
+			<h3>Born - {props.getBirth}</h3>
 			<div className="text">
-				<p>{props.getFilms}</p>
-				<p>{props.getStarships}</p>
-			</div> */}
+				<p>Hair Color: {props.getHair}</p>
+				<p>Eyes: {props.getEyes}</p>
+				<p>Height: {props.getHeight}</p>
+				<p>Gender: {props.getGender}</p>
+			</div>
 		</Card>
 	);
 };
