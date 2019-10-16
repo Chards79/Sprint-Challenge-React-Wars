@@ -13,7 +13,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "sprint-challenge-react-wars/$1"
+            "dest": "sprint-challenge-react-wars/starwars/$1"
         }
     ]
 }
