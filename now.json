@@ -3,7 +3,7 @@
     "name": "sprint-challenge-react-wars",
     "builds": [
         {
-            "src": "sprint-challenge-react-wars/starwars/package.json",
+            "src": "sprint-challenge-react-wars/package.json",
             "use": "@now/static-build",
             "config": {
                 "distDir": "build"
@@ -13,7 +13,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "sprint-challenge-react-wars/starwars/$1"
+            "dest": "sprint-challenge-react-wars/$1"
         }
     ]
 }
